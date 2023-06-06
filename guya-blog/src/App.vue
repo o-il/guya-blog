@@ -3,8 +3,29 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
+
+<script setup lang="ts">
+import { onBeforeMount, onMounted, ref } from "vue";
+
+const isMobile = ref(false);
+
+onBeforeMount(() => {
+  // 在挂载开始之前被调用
+  if (
+    /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    isMobile.value = true;
+  }
+});
+
+onMounted(() => {
+  // 在挂载之后被调用
+});
+</script>
 
 <style lang="scss">
 #app {
