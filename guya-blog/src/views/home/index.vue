@@ -1,12 +1,15 @@
 <template>
   <div class="homeWarp">
     <!-- 背景图片 -->
-    <img class="background" :src="imgList[0]" alt="" />
+    <img class="background" :src="imgList[0]" :onload="handleloading" />
     <div class="overviewWarp">
       <!-- 个人信息组件 -->
       <PersonalOverview class="overview" />
       <!-- 按钮组 -->
     </div>
+
+    <!-- 加载中组件 -->
+    <Spinner :loading="loading" />
   </div>
 </template>
 
@@ -20,7 +23,13 @@ import bg03 from "@/assets/img/bg_03.jpg";
 import bg04 from "@/assets/img/bg_04.jpg";
 import bg05 from "@/assets/img/bg_05.jpg";
 import PersonalOverview from "@/components/biz/personal/PersonalOverview.vue";
-
+import Spinner from "@/components/common/Spinner/index.vue";
+const loading = ref(true);
+const handleloading = () => {
+  setTimeout(() => {
+    loading.value = false;
+  }, 1000);
+};
 const imgList = ref([
   "https://pic3.zhimg.com/v2-3b83e03ec8352b504e7a3dab903a9c66_r.jpg",
   bg01,
