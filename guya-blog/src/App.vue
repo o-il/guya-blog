@@ -12,4 +12,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+// #app {
+//   display: table;
+//   width: 100%;
+//   height: 100%;
+// }
 </style>
